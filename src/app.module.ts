@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
-import { EUAuthController } from './controllers';
-import { EUAuthService } from './services';
+import { MobileModule } from './mobile/mobile.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @Module({
-  imports: [],
-  controllers: [EUAuthController],
-  providers: [EUAuthService],
+  imports: [MobileModule, DashboardModule],
 })
 export class AppModule { }
