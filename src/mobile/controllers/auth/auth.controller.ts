@@ -6,6 +6,9 @@ import {
     Post,
     UseGuards,
     UseInterceptors,
+    UnauthorizedException,
+    InternalServerErrorException,
+    HttpException
 } from '@nestjs/common';
 
 import { LoggingInterceptor, TransformInterceptor } from '../../../common/interceptors';
@@ -21,6 +24,10 @@ export class AuthController {
 
     @Post()
     async create(@Body() createCatDto: CreateEndUser) {
-        return "Okkkkk"
+        if (createCatDto.age > 10) {
+            throw new HttpException({ ok: "conmemay" }, 400)
+        } else {
+            return
+        }
     }
 }
